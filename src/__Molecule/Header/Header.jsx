@@ -3,11 +3,11 @@ import Sneakers from "../../assets/sneakers.svg";
 import CategoryBtn from "../../__Atom/CategoryBtn/CategoryBtn";
 import Cart from "../../assets/cart.svg";
 
-function Header({ ProductData }) {
+function Header({ ProductData, quantity }) {
   const [active, setActive] = useState(1);
   return (
     <>
-      <div className=" h-[112px] max-w-[1110px] w-full border-b border-b-[#E4E9F2] flex items-center justify-between ">
+      <div className=" h-[112px] w-full border-b border-b-[#E4E9F2] flex items-center justify-between ">
         <div className="flex gap-[50px] ">
           <img src={Sneakers} alt="Sneakers" />
           <div className=" flex gap-[30px]">
@@ -39,7 +39,14 @@ function Header({ ProductData }) {
           </div>
         </div>
         <div className="flex gap-[45px] items-center">
-          <img src={Cart} alt="Cart" />
+          <div className="relative">
+            <img src={Cart} alt="Cart" className="cursor-pointer" />
+            <div className=" absolute top-[-6px] left-[12px] w-[19px] h-[13px] bg-[#FF7E1B] rounded-[6.5px] ">
+              <h5 className="text-white text-[10px] flex justify-center items-center">
+                {quantity}
+              </h5>
+            </div>
+          </div>
           <img
             className="w-[50px] h-[50px]"
             src={ProductData.customer}
