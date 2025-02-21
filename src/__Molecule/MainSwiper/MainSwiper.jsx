@@ -12,7 +12,7 @@ function MainSwiper({ ProductData }) {
 
   return (
     <>
-      <div className="max-w-[445px] h-auto">
+      <div className="max-w-[445px] h-auto max-[915px]:hidden">
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
@@ -20,9 +20,8 @@ function MainSwiper({ ProductData }) {
           }}
           loop={true}
           spaceBetween={10}
-          navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Navigation, Thumbs]}
+          modules={[FreeMode, Thumbs]}
           className="mySwiper2"
           onSlideChange={(swiper) => setActive(swiper.realIndex + 1)}
         >

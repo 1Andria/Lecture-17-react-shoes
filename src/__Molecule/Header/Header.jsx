@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Sneakers from "../../assets/sneakers.svg";
 import CategoryBtn from "../../__Atom/CategoryBtn/CategoryBtn";
 import Cart from "../../assets/cart.svg";
@@ -10,9 +10,23 @@ function Header({ ProductData, quantity, setQuantity, state }) {
   function Visible() {
     setVisible(!visible);
   }
+  const ProductDiv = useRef(null);
+
+  useEffect(() => {
+    function outsideClick(event) {
+      if (!ProductDiv.current.contains(event.target)) {
+        setVisible(false);
+      }
+    }
+    document.addEventListener("mousedown", outsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", outsideClick);
+    };
+  }, []);
   return (
     <>
-      <div className=" h-[112px] w-full border-b border-b-[#E4E9F2] flex items-center justify-between ">
+      <div className=" pl-[10px] pr-[10px] h-[112px] w-full border-b border-b-[#E4E9F2] flex items-center justify-between ">
         <div className="flex gap-[50px] ">
           <img src={Sneakers} alt="Sneakers" />
           <div className=" flex gap-[30px]">
@@ -44,7 +58,7 @@ function Header({ ProductData, quantity, setQuantity, state }) {
           </div>
         </div>
         <div className="flex gap-[45px] items-center">
-          <div className="relative">
+          <div className="relative" ref={ProductDiv}>
             <img
               src={Cart}
               alt="Cart"
@@ -57,7 +71,7 @@ function Header({ ProductData, quantity, setQuantity, state }) {
               </h5>
             </div>
             {visible && (
-              <div className="absolute right-[-150px] top-[45px]">
+              <div className="absolute max-[1164px]:right-[-100px] right-[-130px] top-[45px]">
                 <CartCont
                   ProductData={ProductData}
                   quantity={quantity}
@@ -68,11 +82,17 @@ function Header({ ProductData, quantity, setQuantity, state }) {
               </div>
             )}
           </div>
-          <img
-            className="w-[50px] h-[50px]"
-            src={ProductData.customer}
-            alt="customer"
-          />
+          <div
+            className={`rounded-[50%] border-[2px] ${
+              visible ? "border-[#FF7E1B]" : "border-[transparent]"
+            } `}
+          >
+            <img
+              className={`w-[50px] h-[50px] `}
+              src={ProductData.customer}
+              alt="customer"
+            />
+          </div>
         </div>
       </div>
     </>

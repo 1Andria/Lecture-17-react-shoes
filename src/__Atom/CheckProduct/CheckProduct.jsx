@@ -7,6 +7,10 @@ function CheckProduct({ ProductData, quantity, setQuantity, state }) {
     setQuantity(0);
     state.count = 0;
   }
+
+  function Navigate() {
+    window.location.href = "https://react-midterm1.vercel.app/";
+  }
   const Sum = 125 * quantity;
   return (
     <>
@@ -35,7 +39,7 @@ function CheckProduct({ ProductData, quantity, setQuantity, state }) {
         </button>
       </div>
       <div className="w-full flex justify-center pt-[24px]">
-        <CartBtn hidden="hidden" btnTxt="Checkout" />
+        <CartBtn hidden="hidden" btnTxt="Checkout" Change={Navigate} />
       </div>
     </>
   );
