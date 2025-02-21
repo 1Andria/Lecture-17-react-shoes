@@ -3,6 +3,7 @@ import Data from "../../data.json";
 import Header from "../../__Molecule/Header/Header";
 import SwiperCont from "../../__Molecule/Swiper/SwiperCont";
 import Informational from "../../__Molecule/Informational/Informational";
+import MainSwiper from "../../__Molecule/MainSwiper/MainSwiper";
 const initialValue = {
   count: 0,
 };
@@ -28,11 +29,17 @@ function Container() {
 
   return (
     <>
-      <div className="w-full h-scree flex  flex-col items-center">
+      <div className="w-full h-screen flex  flex-col items-center">
         <div className="max-w-[1110px] w-full">
-          <Header ProductData={ProductData} quantity={quantity} />
-          <div className="flex w-full">
+          <Header
+            ProductData={ProductData}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            state={state}
+          />
+          <div className="flex w-full items-center justify-around h-full">
             <SwiperCont ProductData={ProductData} />
+            <MainSwiper ProductData={ProductData} />
             <Informational
               ProductData={ProductData}
               dispatch={dispatch}

@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import Sneakers from "../../assets/sneakers.svg";
 import CategoryBtn from "../../__Atom/CategoryBtn/CategoryBtn";
 import Cart from "../../assets/cart.svg";
+import CartCont from "../CartCont/CartCont";
 
-function Header({ ProductData, quantity }) {
+function Header({ ProductData, quantity, setQuantity, state }) {
   const [active, setActive] = useState(1);
+  const [visible, setVisible] = useState(false);
+  function Visible() {
+    setVisible(!visible);
+  }
   return (
     <>
       <div className=" h-[112px] w-full border-b border-b-[#E4E9F2] flex items-center justify-between ">
@@ -40,12 +45,28 @@ function Header({ ProductData, quantity }) {
         </div>
         <div className="flex gap-[45px] items-center">
           <div className="relative">
-            <img src={Cart} alt="Cart" className="cursor-pointer" />
+            <img
+              src={Cart}
+              alt="Cart"
+              onClick={Visible}
+              className="cursor-pointer"
+            />
             <div className=" absolute top-[-6px] left-[12px] w-[19px] h-[13px] bg-[#FF7E1B] rounded-[6.5px] ">
               <h5 className="text-white text-[10px] flex justify-center items-center">
                 {quantity}
               </h5>
             </div>
+            {visible && (
+              <div className="absolute right-[-150px] top-[45px]">
+                <CartCont
+                  ProductData={ProductData}
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                  state={state}
+                  setVisible={setVisible}
+                />
+              </div>
+            )}
           </div>
           <img
             className="w-[50px] h-[50px]"

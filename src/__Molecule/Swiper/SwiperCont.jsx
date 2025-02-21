@@ -7,7 +7,7 @@ import { Navigation } from "swiper/modules";
 function SwiperCont({ ProductData }) {
   return (
     <>
-      <div className="w-[445px] h-[445px]">
+      <div className="w-[445px] h-[445px] hidden">
         <Swiper
           navigation={true}
           loop={true}

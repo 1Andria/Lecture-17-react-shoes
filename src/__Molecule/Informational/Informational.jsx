@@ -5,7 +5,7 @@ import CartBtn from "../../__Atom/CartBtn/CartBtn";
 function Informational({ ProductData, dispatch, state, Change }) {
   return (
     <>
-      <div className="flex flex-col max-w-[445px] w-full">
+      <div className="flex flex-col max-w-[445px] w-full gap-[25px]">
         <h4 className="text-[13px] text-[#FF7E1B] tracking-wide ">
           {ProductData.company.toUpperCase()}
         </h4>
@@ -28,7 +28,7 @@ function Informational({ ProductData, dispatch, state, Change }) {
         </div>
         <div className=" flex gap-[16px]">
           <QuantityBtn dispatch={dispatch} state={state} />
-          <CartBtn Change={Change} />
+          <CartBtn Change={Change} btnTxt="Add to cart" />
         </div>
       </div>
     </>
