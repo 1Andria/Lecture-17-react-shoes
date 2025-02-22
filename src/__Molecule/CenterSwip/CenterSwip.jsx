@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import FsLightbox from "fslightbox-react";
 
-function CenterSwip() {
-  const [toggler, setToggler] = useState(true);
-
+function CenterSwip({ toggler }) {
   return (
     <>
-      <button onClick={() => setToggler(!toggler)}>zoom</button>
       <FsLightbox
         toggler={toggler}
         sources={[

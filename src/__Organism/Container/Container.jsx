@@ -26,6 +26,8 @@ function Container() {
   const [state, dispatch] = useReducer(Reducer, initialValue);
   const [quantity, setQuantity] = useState(0);
   const [burger, setBurger] = useState(false);
+  const [toggler, setToggler] = useState(false);
+
   function Change() {
     setQuantity(state.count);
   }
@@ -46,8 +48,14 @@ function Container() {
             BurgerM={BurgerM}
           />
           <div className="flex w-full items-center justify-around h-full max-[915px]:flex-col max-[474px]:justify-start">
-            <SwiperCont ProductData={ProductData} />
-            <MainSwiper ProductData={ProductData} />
+            <SwiperCont
+              ProductData={ProductData}
+              onClick={() => setToggler(!toggler)}
+            />
+            <MainSwiper
+              ProductData={ProductData}
+              onClick={() => setToggler(!toggler)}
+            />
             <Informational
               ProductData={ProductData}
               dispatch={dispatch}
@@ -57,7 +65,7 @@ function Container() {
           </div>
         </div>
         {burger && <BurgerMenu BurgerM={BurgerM} />}
-        <CenterSwip ProductData={ProductData} />
+        <CenterSwip toggler={toggler} />
       </div>
     </>
   );

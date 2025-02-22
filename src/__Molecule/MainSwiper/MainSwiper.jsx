@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-function MainSwiper({ ProductData }) {
+function MainSwiper({ ProductData, onClick }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [active, setActive] = useState(1);
 
@@ -18,6 +18,7 @@ function MainSwiper({ ProductData }) {
             "--swiper-navigation-color": "#fff",
             "--swiper-pagination-color": "#fff",
           }}
+          onClick={onClick}
           loop={true}
           spaceBetween={10}
           thumbs={{ swiper: thumbsSwiper }}
