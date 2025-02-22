@@ -5,7 +5,7 @@ import Plus from "../../assets/plus.png";
 function QuantityBtn({ state, dispatch }) {
   return (
     <>
-      <div className="w-[157px] h-[56px] rounded-[10px] bg-[#F6F8FD] flex justify-evenly items-center">
+      <div className="w-[157px] max-[474px]:w-full h-[56px] rounded-[10px] bg-[#F6F8FD] flex justify-evenly items-center">
         <button
           onClick={() => {
             if (state.count > 0) {

@@ -4,6 +4,8 @@ import Header from "../../__Molecule/Header/Header";
 import SwiperCont from "../../__Molecule/Swiper/SwiperCont";
 import Informational from "../../__Molecule/Informational/Informational";
 import MainSwiper from "../../__Molecule/MainSwiper/MainSwiper";
+import BurgerMenu from "../../__Molecule/BurgerMenu/BurgerMenu";
+import CenterSwip from "../../__Molecule/CenterSwip/CenterSwip";
 const initialValue = {
   count: 0,
 };
@@ -23,8 +25,13 @@ function Container() {
   const ProductData = Data.find((item) => item.id === 1);
   const [state, dispatch] = useReducer(Reducer, initialValue);
   const [quantity, setQuantity] = useState(0);
+  const [burger, setBurger] = useState(false);
   function Change() {
     setQuantity(state.count);
+  }
+
+  function BurgerM() {
+    setBurger(!burger);
   }
 
   return (
@@ -36,8 +43,9 @@ function Container() {
             quantity={quantity}
             setQuantity={setQuantity}
             state={state}
+            BurgerM={BurgerM}
           />
-          <div className="flex w-full items-center justify-around h-full">
+          <div className="flex w-full items-center justify-around h-full max-[915px]:flex-col max-[474px]:justify-start">
             <SwiperCont ProductData={ProductData} />
             <MainSwiper ProductData={ProductData} />
             <Informational
@@ -48,6 +56,8 @@ function Container() {
             />
           </div>
         </div>
+        {burger && <BurgerMenu BurgerM={BurgerM} />}
+        <CenterSwip ProductData={ProductData} />
       </div>
     </>
   );

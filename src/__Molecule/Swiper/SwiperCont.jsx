@@ -7,7 +7,7 @@ import { Navigation } from "swiper/modules";
 function SwiperCont({ ProductData }) {
   return (
     <>
-      <div className="w-[445px] h-[445px] min-[915px]:hidden">
+      <div className=" z-0  w-[445px] max-[474px]:rounded-[0px] max-[474px]:w-full max-[474px]:h-[380px] h-[445px] min-[915px]:hidden">
         <Swiper
           navigation={true}
           loop={true}
@@ -16,28 +16,28 @@ function SwiperCont({ ProductData }) {
         >
           <SwiperSlide>
             <img
-              className="rounded-[15px] w-full h-full "
+              className="rounded-[15px] max-[474px]:rounded-[0px] w-[445px] h-[445px] max-[474px]:h-[380px] "
               src={ProductData.firstPicture}
               alt="shoe"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className=" rounded-[15px] w-[445px] h-[445px]"
+              className=" rounded-[15px] w-[445px] h-[445px] max-[474px]:rounded-[0px] max-[474px]:h-[380px]"
               src={ProductData.secondPicture}
               alt="shoe"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-[15px] w-[445px] h-[445px]"
+              className="rounded-[15px] w-[445px] h-[445px] max-[474px]:rounded-[0px] max-[474px]:h-[380px]"
               src={ProductData.thirdPicture}
               alt="shoe"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-[15px] w-[445px] h-[445px]"
+              className="rounded-[15px] w-[445px] h-[445px] max-[474px]:rounded-[0px] max-[474px]:h-[380px]"
               src={ProductData.fourthPicture}
               alt="shoe"
             />

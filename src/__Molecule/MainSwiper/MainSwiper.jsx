@@ -65,7 +65,7 @@ function MainSwiper({ ProductData }) {
               <img
                 onClick={() => setActive(1)}
                 src={ProductData.firstPicture}
-                className={`w-[88px] h-[88px hover:opacity-[0.7]] rounded-[10px] cursor-pointer  ${
+                className={`w-[88px] h-[88px] hover:opacity-[0.7]] rounded-[10px] cursor-pointer  ${
                   active === 1 ? "opacity-[0.5]" : "opacity-[1]"
                 }`}
               />
